@@ -4,214 +4,485 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101610">
-  <meta name="description" content="Portfolio de desarrollo de videojuegos y mods de Minecraft.">
-  <title>Mi Portfolio | Minecraft Developer</title>
+  <meta name="theme-color" content="#0b0e0c">
+  <meta name="description" content="Portfolio personal de desarrollo de videojuegos, programación y proyectos creativos.">
+  <title>Alnoruan | Game Developer</title>
 
   <style>
     :root {
-      --bg: #101610;
-      --panel: #19221a;
-      --green: #7ee787;
-      --text: #f0f6fc;
-      --muted: #a6b3a6;
-      --border: #334335;
+      --bg: #0b0e0c;
+      --panel: #121914;
+      --green: #8cff9b;
+      --text: #f0f5f1;
+      --muted: #9aa99e;
+      --border: #27382b;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.7;
     }
 
-    a { color: var(--green); }
-
-    header {
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    header strong { color: var(--green); }
+    a:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 5px;
+    }
 
-    nav { display: flex; gap: 20px; }
+    .container {
+      width: min(1050px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 14, 12, 0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 850;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
 
     nav a {
-      color: var(--text);
-      text-decoration: none;
+      color: var(--muted);
       font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--green);
     }
 
     .hero {
-      max-width: 900px;
-      margin: auto;
-      padding: 100px 24px 80px;
+      min-height: 510px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 85px 0;
     }
 
-    .tag {
+    .eyebrow {
       color: var(--green);
       font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.1;
-      margin: 18px 0;
+      font-size: clamp(42px, 8vw, 82px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin: 22px 0;
     }
 
-    h1 span { color: var(--green); }
+    h1 span {
+      color: var(--green);
+    }
 
-    .intro {
-      max-width: 620px;
+    .hero p {
+      max-width: 610px;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-block;
-      margin-top: 22px;
-      padding: 11px 18px;
-      background: var(--green);
-      color: #101610;
-      text-decoration: none;
-      font-weight: 700;
+      padding: 11px 19px;
+      border: 1px solid var(--border);
       border-radius: 7px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--green);
+    }
+
+    .button.primary {
+      background: var(--green);
+      color: #0b160d;
+      border-color: var(--green);
     }
 
     section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 45px 24px;
+      padding: 65px 0;
+      scroll-margin-top: 75px;
     }
 
-    h2 { font-size: 28px; }
+    .section-label {
+      color: var(--green);
+      font-family: monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
 
-    .projects {
+    h2 {
+      font-size: clamp(27px, 5vw, 38px);
+      margin: 10px 0 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
       gap: 18px;
     }
 
-    .card {
+    .project {
       background: var(--panel);
       border: 1px solid var(--border);
-      padding: 23px;
       border-radius: 12px;
+      padding: 25px;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .card h3 { margin-top: 0; }
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: #527657;
+    }
 
-    .card p, .about { color: var(--muted); }
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #1b2920;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
 
     .status {
-      font-family: monospace;
-      font-size: 12px;
       color: var(--green);
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
     }
 
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      border-top: 1px solid var(--border);
+    .project h3 {
+      font-size: 21px;
+      margin: 8px 0;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 19px;
+    }
+
+    .tag {
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: #c2d5c5;
+      font-size: 11px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .about-text {
       color: var(--muted);
     }
 
-    @media (max-width: 500px) {
-      header { padding: 18px; }
-      nav { gap: 10px; }
-      nav a { font-size: 12px; }
-      .hero { padding-top: 65px; }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skill {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .contact-box {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #142018, #101410);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer {
+      margin-top: 35px;
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 45px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <strong>◈ MI PORTFOLIO</strong>
-    <nav>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#sobre-mi">Sobre mí</a>
-    </nav>
+    <div class="container navbar">
+      <a class="logo" href="#inicio">ALNORUAN<span>.</span></a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <div class="hero">
-      <div class="tag">// GAME DEVELOPMENT & JAVA</div>
-      <h1>Creo cosas<br>para <span>Minecraft.</span></h1>
+    <div class="container">
+      <section class="hero" id="inicio">
+        <div class="eyebrow">Portfolio personal · Game development</div>
 
-      <p class="intro">
-        Soy un desarrollador en formación interesado en Java,
-        el diseño de mecánicas y la creación de experiencias
-        originales para videojuegos.
-      </p>
+        <h1>Ideas que se<br>convierten en <span>juego.</span></h1>
 
-      <a class="button" href="#proyectos">Explorar proyectos ↓</a>
+        <p>
+          Exploro la programación, el diseño de mecánicas y la creación
+          de experiencias interactivas. Este es mi espacio para desarrollar
+          ideas, aprender y construir proyectos cada vez mejores.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="#proyectos">Explorar proyectos ↓</a>
+          <a class="button"
+             href="https://github.com/Alnoruan"
+             target="_blank"
+             rel="noopener noreferrer">
+            Mi GitHub ↗
+          </a>
+        </div>
+      </section>
+
+      <section id="proyectos">
+        <div class="section-label">01 / TRABAJO</div>
+        <h2>Proyectos seleccionados</h2>
+
+        <p class="section-description">
+          Experimentos personales y proyectos en desarrollo.
+          Iré añadiendo novedades a medida que estén preparados para mostrarse.
+        </p>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-icon" aria-hidden="true">◈</div>
+            <div class="status">● EN DESARROLLO · PRIVADO</div>
+            <h3>ECO</h3>
+            <p>
+              Proyecto personal de desarrollo de videojuegos.
+              Una investigación creativa sobre nuevas experiencias
+              interactivas. Los detalles se mantienen privados durante
+              el desarrollo.
+            </p>
+            <div class="tags">
+              <span class="tag">Game Design</span>
+              <span class="tag">Desarrollo</span>
+              <span class="tag">Minecraft Java</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-icon" aria-hidden="true">⌘</div>
+            <div class="status">● APRENDIZAJE</div>
+            <h3>Java Lab</h3>
+            <p>
+              Ejercicios y pequeños experimentos para aprender
+              programación, mejorar la lógica y comprender cómo
+              se construyen los sistemas de software.
+            </p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Lógica</span>
+              <span class="tag">Práctica</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-icon" aria-hidden="true">✳</div>
+            <div class="status">● PRÓXIMAMENTE</div>
+            <h3>Próximo proyecto</h3>
+            <p>
+              Un espacio reservado para futuros proyectos,
+              prototipos y experimentos de programación.
+            </p>
+            <div class="tags">
+              <span class="tag">En preparación</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="sobre-mi">
+        <div class="section-label">02 / PERFIL</div>
+        <h2>Aprendiendo a crear cosas extraordinarias.</h2>
+
+        <div class="about-grid">
+          <p class="about-text">
+            Soy un desarrollador en formación con interés en la programación
+            y el diseño de videojuegos. Me gusta explorar ideas originales,
+            resolver problemas y aprender cómo funcionan los sistemas
+            que hacen posible una experiencia de juego.
+            <br><br>
+            Mi objetivo es desarrollar proyectos sólidos, mejorar mis
+            habilidades técnicas y compartir mi progreso de forma
+            profesional.
+          </p>
+
+          <div class="skills" aria-label="Áreas de aprendizaje">
+            <span class="skill">Java</span>
+            <span class="skill">Game Design</span>
+            <span class="skill">Minecraft</span>
+            <span class="skill">Git</span>
+            <span class="skill">Resolución de problemas</span>
+            <span class="skill">Aprendizaje continuo</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="section-label">03 / CONTACTO</div>
+
+        <div class="contact-box">
+          <h2>Construyendo el siguiente proyecto.</h2>
+          <p>
+            Puedes explorar mis repositorios públicos y seguir
+            los proyectos que vaya compartiendo.
+          </p>
+
+          <div class="buttons">
+            <a class="button primary"
+               href="https://github.com/Alnoruan"
+               target="_blank"
+               rel="noopener noreferrer">
+              Visitar GitHub ↗
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-
-    <section id="proyectos">
-      <div class="tag">// 01 — MI TRABAJO</div>
-      <h2>Proyectos destacados</h2>
-
-      <div class="projects">
-        <article class="card">
-          <div class="status">● EN DESARROLLO</div>
-          <h3>ECO: El mundo tiene memoria</h3>
-          <p>
-            Un mod experimental en el que el mundo reacciona
-            a las acciones del jugador y recuerda sus decisiones.
-          </p>
-          <p><strong>Tecnologías:</strong> Java, Fabric</p>
-          <!-- Sustituye # por el enlace real de tu repositorio -->
-          <a href="https://github.com/">Ver código →</a>
-        </article>
-
-        <article class="card">
-          <div class="status">● PRÓXIMAMENTE</div>
-          <h3>Proyecto 02</h3>
-          <p>
-            Aquí presentaré otro experimento de programación,
-            una mecánica o una herramienta para videojuegos.
-          </p>
-          <p><strong>Tecnologías:</strong> Por definir</p>
-        </article>
-
-        <article class="card">
-          <div class="status">● PRÓXIMAMENTE</div>
-          <h3>Proyecto 03</h3>
-          <p>
-            Un espacio para mostrar lo que he aprendido,
-            los problemas que he resuelto y mis siguientes retos.
-          </p>
-          <p><strong>Objetivo:</strong> Aprender y mejorar</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="sobre-mi">
-      <div class="tag">// 02 — SOBRE MÍ</div>
-      <h2>Aprendiendo a crear videojuegos</h2>
-      <p class="about">
-        Me interesa aprender programación, diseñar mecánicas
-        originales y desarrollar proyectos cada vez más completos.
-        Este portfolio documenta mi progreso, mis experimentos
-        y las soluciones que voy creando.
-      </p>
-      <p>
-        <a href="https://github.com/">Mi GitHub →</a>
-      </p>
-    </section>
   </main>
 
   <footer>
-    Hecho con HTML y CSS · Actualizado a medida que aprendo.
+    <div class="container footer-inner">
+      <span>© 2026 Alnoruan · Portfolio personal</span>
+      <span>Diseñado y construido con HTML y CSS.</span>
+    </div>
   </footer>
 </body>
 </html>
