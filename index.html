@@ -2,487 +2,438 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0e0c">
-  <meta name="description" content="Portfolio personal de desarrollo de videojuegos, programación y proyectos creativos.">
-  <title>Alnoruan | Game Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101510">
+    <meta name="description" content="Portfolio de Alnoruan, desarrollador de mods de Minecraft y creador de proyectos personales.">
+    <title>Alnoruan | Desarrollador de Mods de Minecraft</title>
 
-  <style>
-    :root {
-      --bg: #0b0e0c;
-      --panel: #121914;
-      --green: #8cff9b;
-      --text: #f0f5f1;
-      --muted: #9aa99e;
-      --border: #27382b;
-    }
+    <style>
+        :root {
+            --bg: #101510;
+            --panel: #191f19;
+            --green: #67d66c;
+            --text: #f0f3ef;
+            --muted: #a5afa4;
+            --border: #303b30;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.7;
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        .container {
+            width: min(1080px, 90%);
+            margin: auto;
+        }
 
-    a:focus-visible {
-      outline: 2px solid var(--green);
-      outline-offset: 5px;
-    }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(16, 21, 16, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
 
-    .container {
-      width: min(1050px, 90%);
-      margin: auto;
-    }
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(11, 14, 12, 0.94);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
 
-    .navbar {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+        .logo span {
+            color: var(--green);
+        }
 
-    .logo {
-      font-weight: 850;
-      letter-spacing: 1px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
 
-    .logo span {
-      color: var(--green);
-    }
+        .nav-links a {
+            color: var(--muted);
+            transition: color 0.2s;
+        }
 
-    nav {
-      display: flex;
-      gap: 25px;
-    }
+        .nav-links a:hover {
+            color: var(--green);
+        }
 
-    nav a {
-      color: var(--muted);
-      font-size: 14px;
-      transition: color 0.2s;
-    }
+        .hero {
+            min-height: 490px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 90px 0;
+        }
 
-    nav a:hover {
-      color: var(--green);
-    }
+        .tag {
+            display: inline-block;
+            width: fit-content;
+            padding: 5px 12px;
+            margin-bottom: 22px;
+            border: 1px solid #385d39;
+            border-radius: 5px;
+            color: var(--green);
+            background: #19291a;
+            font-size: 0.85rem;
+        }
 
-    .hero {
-      min-height: 510px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 85px 0;
-    }
+        h1 {
+            font-size: clamp(2.6rem, 7vw, 5rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
 
-    .eyebrow {
-      color: var(--green);
-      font-family: monospace;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+        h1 span {
+            color: var(--green);
+        }
 
-    h1 {
-      font-size: clamp(42px, 8vw, 82px);
-      line-height: 1.08;
-      letter-spacing: -3px;
-      margin: 22px 0;
-    }
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+        }
 
-    h1 span {
-      color: var(--green);
-    }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
 
-    .hero p {
-      max-width: 610px;
-      color: var(--muted);
-      font-size: 17px;
-    }
+        .button {
+            display: inline-block;
+            padding: 11px 19px;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, background 0.2s;
+        }
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
+        .button:hover {
+            transform: translateY(-2px);
+        }
 
-    .button {
-      display: inline-block;
-      padding: 11px 19px;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
+        .button-primary {
+            background: var(--green);
+            color: #101510;
+            border-color: var(--green);
+        }
 
-    .button:hover {
-      transform: translateY(-2px);
-      border-color: var(--green);
-    }
+        .button-primary:hover {
+            background: #83e887;
+        }
 
-    .button.primary {
-      background: var(--green);
-      color: #0b160d;
-      border-color: var(--green);
-    }
+        section {
+            padding: 75px 0;
+            border-top: 1px solid var(--border);
+        }
 
-    section {
-      padding: 65px 0;
-      scroll-margin-top: 75px;
-    }
+        .section-label {
+            color: var(--green);
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
 
-    .section-label {
-      color: var(--green);
-      font-family: monospace;
-      font-size: 12px;
-      letter-spacing: 2px;
-    }
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 14px;
+        }
 
-    h2 {
-      font-size: clamp(27px, 5vw, 38px);
-      margin: 10px 0 12px;
-      letter-spacing: -1px;
-    }
+        .section-intro {
+            color: var(--muted);
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
 
-    .section-description {
-      color: var(--muted);
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-      gap: 18px;
-    }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 27px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
 
-    .project {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
+        .card:hover {
+            border-color: #527e52;
+            transform: translateY(-3px);
+        }
 
-    .project:hover {
-      transform: translateY(-4px);
-      border-color: #527657;
-    }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
 
-    .project-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: #1b2920;
-      font-size: 24px;
-      margin-bottom: 22px;
-    }
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
 
-    .status {
-      color: var(--green);
-      font-family: monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
-    }
+        .card p {
+            color: var(--muted);
+        }
 
-    .project h3 {
-      font-size: 21px;
-      margin: 8px 0;
-    }
+        .status {
+            display: inline-block;
+            font-size: 0.78rem;
+            padding: 4px 9px;
+            margin-top: 18px;
+            border-radius: 4px;
+            color: var(--green);
+            background: #203421;
+        }
 
-    .project p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+        .about-box {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--green);
+            padding: 26px;
+            border-radius: 6px;
+            max-width: 800px;
+        }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 19px;
-    }
+        .about-box p {
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
 
-    .tag {
-      padding: 4px 9px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      color: #c2d5c5;
-      font-size: 11px;
-    }
+        .about-box p:last-child {
+            margin-bottom: 0;
+        }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 35px;
-      align-items: start;
-    }
+        .goal {
+            color: var(--green) !important;
+            font-weight: bold;
+        }
 
-    .about-text {
-      color: var(--muted);
-    }
+        .contact-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
+        .contact-card p {
+            color: var(--muted);
+        }
 
-    .skill {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 9px 12px;
-      border-radius: 6px;
-      font-size: 13px;
-    }
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.9rem;
+        }
 
-    .contact-box {
-      padding: 30px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: linear-gradient(135deg, #142018, #101410);
-    }
+        @media (max-width: 650px) {
+            nav {
+                padding: 16px 0;
+                flex-direction: column;
+            }
 
-    .contact-box p {
-      color: var(--muted);
-      margin-top: 8px;
-    }
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
 
-    footer {
-      margin-top: 35px;
-      border-top: 1px solid var(--border);
-      padding: 25px 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
+            .hero {
+                min-height: auto;
+                padding: 75px 0;
+            }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+            .projects {
+                grid-template-columns: 1fr;
+            }
 
-    @media (max-width: 650px) {
-      .navbar {
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
+            section {
+                padding: 55px 0;
+            }
 
-      nav {
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 85px 0;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 45px 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition: none !important;
-      }
-    }
-  </style>
+            h1 {
+                letter-spacing: -1px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <div class="container navbar">
-      <a class="logo" href="#inicio">ALNORUAN<span>.</span></a>
 
-      <nav aria-label="Navegación principal">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <nav class="container">
+            <a class="logo" href="#inicio">Alno<span>ruan</span></a>
 
-  <main>
-    <div class="container">
-      <section class="hero" id="inicio">
-        <div class="eyebrow">Portfolio personal · Game development</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <h1>Ideas que se<br>convierten en <span>juego.</span></h1>
+    <main>
+        <section class="hero container" id="inicio">
+            <div class="tag">Desarrollador de mods de Minecraft</div>
 
-        <p>
-          Exploro la programación, el diseño de mecánicas y la creación
-          de experiencias interactivas. Este es mi espacio para desarrollar
-          ideas, aprender y construir proyectos cada vez mejores.
-        </p>
+            <h1>Hola, soy <span>Alnoruan.</span></h1>
 
-        <div class="buttons">
-          <a class="button primary" href="#proyectos">Explorar proyectos ↓</a>
-          <a class="button"
-             href="https://github.com/Alnoruan"
-             target="_blank"
-             rel="noopener noreferrer">
-            Mi GitHub ↗
-          </a>
-        </div>
-      </section>
-
-      <section id="proyectos">
-        <div class="section-label">01 / TRABAJO</div>
-        <h2>Proyectos seleccionados</h2>
-
-        <p class="section-description">
-          Experimentos personales y proyectos en desarrollo.
-          Iré añadiendo novedades a medida que estén preparados para mostrarse.
-        </p>
-
-        <div class="project-grid">
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">◈</div>
-            <div class="status">● EN DESARROLLO · PRIVADO</div>
-            <h3>ECO</h3>
             <p>
-              Proyecto personal de desarrollo de videojuegos.
-              Una investigación creativa sobre nuevas experiencias
-              interactivas. Los detalles se mantienen privados durante
-              el desarrollo.
+                Soy un creador apasionado por Minecraft, el diseño de videojuegos
+                y la creación de nuevas experiencias dentro del juego.
+                Me dedico a desarrollar mods de Minecraft, explorar ideas
+                originales y experimentar con nuevas posibilidades.
             </p>
-            <div class="tags">
-              <span class="tag">Game Design</span>
-              <span class="tag">Desarrollo</span>
-              <span class="tag">Minecraft Java</span>
+
+            <div class="buttons">
+                <a class="button button-primary" href="#proyectos">
+                    Ver mis proyectos
+                </a>
+
+                <a class="button" href="https://github.com/Alnoruan"
+                   target="_blank" rel="noopener noreferrer">
+                    Mi GitHub ↗
+                </a>
             </div>
-          </article>
+        </section>
 
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">⌘</div>
-            <div class="status">● APRENDIZAJE</div>
-            <h3>Java Lab</h3>
-            <p>
-              Ejercicios y pequeños experimentos para aprender
-              programación, mejorar la lógica y comprender cómo
-              se construyen los sistemas de software.
-            </p>
-            <div class="tags">
-              <span class="tag">Java</span>
-              <span class="tag">Lógica</span>
-              <span class="tag">Práctica</span>
+        <section id="proyectos">
+            <div class="container">
+                <div class="section-label">Portfolio</div>
+                <h2>Mis proyectos</h2>
+
+                <p class="section-intro">
+                    Un espacio para mis proyectos personales, mis ideas
+                    y mi aprendizaje como creador de mods de Minecraft.
+                </p>
+
+                <div class="projects">
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">🧱</div>
+                        <h3>Mods de Minecraft</h3>
+
+                        <p>
+                            Proyectos personales centrados en la creatividad,
+                            la experimentación y la creación de nuevas
+                            experiencias para Minecraft.
+                        </p>
+
+                        <span class="status">Desarrollo creativo</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">🔒</div>
+                        <h3>ECO</h3>
+
+                        <p>
+                            Un proyecto personal de desarrollo de videojuegos.
+                            Sus detalles se mantienen privados mientras
+                            continúa su desarrollo.
+                        </p>
+
+                        <span class="status">Proyecto privado</span>
+                    </article>
+                </div>
             </div>
-          </article>
+        </section>
 
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">✳</div>
-            <div class="status">● PRÓXIMAMENTE</div>
-            <h3>Próximo proyecto</h3>
-            <p>
-              Un espacio reservado para futuros proyectos,
-              prototipos y experimentos de programación.
-            </p>
-            <div class="tags">
-              <span class="tag">En preparación</span>
+        <section id="sobre-mi">
+            <div class="container">
+                <div class="section-label">Quién soy</div>
+                <h2>Sobre mí</h2>
+
+                <div class="about-box">
+                    <p>
+                        Soy un desarrollador en formación con ganas de mejorar
+                        mis habilidades en la creación de mods, el diseño de
+                        videojuegos y la programación.
+                    </p>
+
+                    <p>
+                        Me gusta explorar ideas, aprender herramientas nuevas
+                        y convertir conceptos creativos en proyectos.
+                    </p>
+
+                    <p class="goal">
+                        Mi gran objetivo es seguir aprendiendo y, algún día,
+                        poder trabajar en Mojang.
+                    </p>
+                </div>
             </div>
-          </article>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <div class="section-label">Contacto</div>
+                <h2>Conecta conmigo</h2>
+
+                <div class="contact-card">
+                    <div>
+                        <h3>¡Seguimos construyendo!</h3>
+                        <p>
+                            Puedes encontrarme en GitHub y seguir mis futuros
+                            proyectos y avances.
+                        </p>
+                    </div>
+
+                    <a class="button button-primary"
+                       href="https://github.com/Alnoruan"
+                       target="_blank" rel="noopener noreferrer">
+                        Visitar mi GitHub ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Alnoruan · Portfolio personal</p>
+            <p>Hecho con creatividad y pasión por Minecraft.</p>
         </div>
-      </section>
+    </footer>
 
-      <section id="sobre-mi">
-        <div class="section-label">02 / PERFIL</div>
-        <h2>Aprendiendo a crear cosas extraordinarias.</h2>
-
-        <div class="about-grid">
-          <p class="about-text">
-            Soy un desarrollador en formación con interés en la programación
-            y el diseño de videojuegos. Me gusta explorar ideas originales,
-            resolver problemas y aprender cómo funcionan los sistemas
-            que hacen posible una experiencia de juego.
-            <br><br>
-            Mi objetivo es desarrollar proyectos sólidos, mejorar mis
-            habilidades técnicas y compartir mi progreso de forma
-            profesional.
-          </p>
-
-          <div class="skills" aria-label="Áreas de aprendizaje">
-            <span class="skill">Java</span>
-            <span class="skill">Game Design</span>
-            <span class="skill">Minecraft</span>
-            <span class="skill">Git</span>
-            <span class="skill">Resolución de problemas</span>
-            <span class="skill">Aprendizaje continuo</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacto">
-        <div class="section-label">03 / CONTACTO</div>
-
-        <div class="contact-box">
-          <h2>Construyendo el siguiente proyecto.</h2>
-          <p>
-            Puedes explorar mis repositorios públicos y seguir
-            los proyectos que vaya compartiendo.
-          </p>
-
-          <div class="buttons">
-            <a class="button primary"
-               href="https://github.com/Alnoruan"
-               target="_blank"
-               rel="noopener noreferrer">
-              Visitar GitHub ↗
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span>© 2026 Alnoruan · Portfolio personal</span>
-      <span>Diseñado y construido con HTML y CSS.</span>
-    </div>
-  </footer>
 </body>
 </html>
