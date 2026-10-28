@@ -4,18 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101510">
-    <meta name="description" content="Portfolio de Alnoruan, desarrollador de mods de Minecraft y creador de proyectos personales.">
-    <title>Alnoruan | Desarrollador de Mods de Minecraft</title>
+    <meta name="theme-color" content="#070d18">
+    <meta name="description" content="Portfolio de Alnoruan, desarrollador de mods de Minecraft.">
+    <title>Alnoruan | Minecraft Mod Developer</title>
 
     <style>
         :root {
-            --bg: #101510;
-            --panel: #191f19;
-            --green: #67d66c;
-            --text: #f0f3ef;
-            --muted: #a5afa4;
-            --border: #303b30;
+            --bg: #070d18;
+            --bg-light: #0b1424;
+            --panel: #0e192b;
+            --blue: #168cff;
+            --blue-light: #54b5ff;
+            --text: #f2f7ff;
+            --muted: #a9bbd3;
+            --border: #1b3453;
         }
 
         * {
@@ -45,33 +47,34 @@
         header {
             position: sticky;
             top: 0;
-            z-index: 10;
-            background: rgba(16, 21, 16, 0.95);
+            z-index: 100;
+            background: rgba(7, 13, 24, 0.95);
             border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
 
         nav {
             min-height: 72px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             gap: 20px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
         }
 
-        .logo span {
-            color: var(--green);
+        .logo span,
+        .blue {
+            color: var(--blue);
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 25px;
             list-style: none;
         }
 
@@ -81,7 +84,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--green);
+            color: var(--blue-light);
         }
 
         .hero {
@@ -89,30 +92,39 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 90px 0;
+            align-items: flex-start;
+            padding: 85px 0;
+            background:
+                radial-gradient(
+                    ellipse at 85% 30%,
+                    rgba(22, 140, 255, 0.14),
+                    transparent 45%
+                );
         }
 
         .tag {
             display: inline-block;
-            width: fit-content;
             padding: 5px 12px;
             margin-bottom: 22px;
-            border: 1px solid #385d39;
+            border: 1px solid #174d83;
             border-radius: 5px;
-            color: var(--green);
-            background: #19291a;
-            font-size: 0.85rem;
+            color: var(--blue-light);
+            background: #0b1d33;
+            font-size: 0.82rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         h1 {
-            font-size: clamp(2.6rem, 7vw, 5rem);
-            line-height: 1.1;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1.08;
             letter-spacing: -2px;
             margin-bottom: 22px;
         }
 
         h1 span {
-            color: var(--green);
+            color: var(--blue);
+            text-shadow: 0 0 35px rgba(22, 140, 255, 0.2);
         }
 
         .hero p {
@@ -130,25 +142,27 @@
 
         .button {
             display: inline-block;
-            padding: 11px 19px;
-            border-radius: 5px;
+            padding: 11px 20px;
+            border-radius: 6px;
             font-weight: bold;
             border: 1px solid var(--border);
-            transition: transform 0.2s, background 0.2s;
+            transition: 0.2s ease;
         }
 
         .button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            border-color: var(--blue);
         }
 
         .button-primary {
-            background: var(--green);
-            color: #101510;
-            border-color: var(--green);
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+            box-shadow: 0 0 20px rgba(22, 140, 255, 0.12);
         }
 
         .button-primary:hover {
-            background: #83e887;
+            background: #0876df;
         }
 
         section {
@@ -157,8 +171,8 @@
         }
 
         .section-label {
-            color: var(--green);
-            font-size: 0.85rem;
+            color: var(--blue-light);
+            font-size: 0.82rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -167,6 +181,7 @@
 
         h2 {
             font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.2;
             margin-bottom: 14px;
         }
 
@@ -179,25 +194,34 @@
         .projects {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
+            gap: 22px;
         }
 
         .card {
-            background: var(--panel);
+            background: linear-gradient(145deg, #101e33, #0a1321);
             border: 1px solid var(--border);
             border-radius: 10px;
-            padding: 27px;
-            transition: border-color 0.2s, transform 0.2s;
+            padding: 28px;
+            transition: 0.25s ease;
         }
 
         .card:hover {
-            border-color: #527e52;
-            transform: translateY(-3px);
+            border-color: var(--blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 80, 180, 0.1);
         }
 
         .card-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #102b4b;
+            border: 1px solid #174d83;
+            border-radius: 9px;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
         }
 
         .card h3 {
@@ -211,42 +235,53 @@
 
         .status {
             display: inline-block;
-            font-size: 0.78rem;
-            padding: 4px 9px;
+            font-size: 0.8rem;
+            padding: 4px 10px;
             margin-top: 18px;
-            border-radius: 4px;
-            color: var(--green);
-            background: #203421;
+            border-radius: 20px;
+            color: var(--blue-light);
+            background: #0d2540;
+            border: 1px solid #174d83;
         }
 
-        .about-box {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--green);
-            padding: 26px;
-            border-radius: 6px;
-            max-width: 800px;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            align-items: center;
         }
 
-        .about-box p {
+        .about-text p {
             color: var(--muted);
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
-        .about-box p:last-child {
-            margin-bottom: 0;
+        .goal-card {
+            padding: 28px;
+            background: linear-gradient(145deg, #101e33, #091321);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--blue);
+            border-radius: 8px;
         }
 
-        .goal {
-            color: var(--green) !important;
-            font-weight: bold;
+        .goal-card .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .goal-card p {
+            color: var(--muted);
+        }
+
+        .goal-card strong {
+            color: var(--blue-light);
         }
 
         .contact-card {
+            padding: 30px;
             background: var(--panel);
             border: 1px solid var(--border);
             border-radius: 10px;
-            padding: 30px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -256,26 +291,33 @@
 
         .contact-card p {
             color: var(--muted);
+            margin-top: 5px;
         }
 
         footer {
             padding: 25px 0;
             border-top: 1px solid var(--border);
             color: var(--muted);
-            text-align: center;
             font-size: 0.9rem;
         }
 
-        @media (max-width: 650px) {
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        @media (max-width: 700px) {
             nav {
                 padding: 16px 0;
                 flex-direction: column;
             }
 
             .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
                 font-size: 0.9rem;
             }
 
@@ -284,7 +326,8 @@
                 padding: 75px 0;
             }
 
-            .projects {
+            .projects,
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -294,6 +337,11 @@
 
             h1 {
                 letter-spacing: -1px;
+            }
+
+            .contact-card {
+                align-items: flex-start;
+                flex-direction: column;
             }
         }
     </style>
@@ -316,32 +364,37 @@
 
     <main>
         <section class="hero container" id="inicio">
-            <div class="tag">Desarrollador de mods de Minecraft</div>
+            <div class="tag">DESARROLLADOR DE MODS DE MINECRAFT</div>
 
-            <h1>Hola, soy <span>Alnoruan.</span></h1>
+            <h1>
+                Hola, soy<br>
+                <span>Alnoruan.</span>
+            </h1>
 
             <p>
-                Soy un creador apasionado por Minecraft, el diseño de videojuegos
-                y la creación de nuevas experiencias dentro del juego.
-                Me dedico a desarrollar mods de Minecraft, explorar ideas
-                originales y experimentar con nuevas posibilidades.
+                Soy un creador apasionado por Minecraft, el diseño de
+                videojuegos y la creación de nuevas experiencias dentro
+                del juego. Me dedico a desarrollar mods de Minecraft,
+                explorar ideas originales y experimentar con nuevas
+                posibilidades.
             </p>
 
             <div class="buttons">
-                <a class="button button-primary" href="#proyectos">
-                    Ver mis proyectos
-                </a>
-
-                <a class="button" href="https://github.com/Alnoruan"
+                <a class="button button-primary"
+                   href="https://github.com/Alnoruan"
                    target="_blank" rel="noopener noreferrer">
                     Mi GitHub ↗
+                </a>
+
+                <a class="button" href="#proyectos">
+                    Ver mis proyectos ↓
                 </a>
             </div>
         </section>
 
         <section id="proyectos">
             <div class="container">
-                <div class="section-label">Portfolio</div>
+                <div class="section-label">PORTFOLIO</div>
                 <h2>Mis proyectos</h2>
 
                 <p class="section-intro">
@@ -351,7 +404,7 @@
 
                 <div class="projects">
                     <article class="card">
-                        <div class="card-icon" aria-hidden="true">🧱</div>
+                        <div class="card-icon" aria-hidden="true">🧊</div>
                         <h3>Mods de Minecraft</h3>
 
                         <p>
@@ -381,40 +434,49 @@
 
         <section id="sobre-mi">
             <div class="container">
-                <div class="section-label">Quién soy</div>
-                <h2>Sobre mí</h2>
+                <div class="section-label">SOBRE MÍ</div>
+                <h2>Quién soy</h2>
 
-                <div class="about-box">
-                    <p>
-                        Soy un desarrollador en formación con ganas de mejorar
-                        mis habilidades en la creación de mods, el diseño de
-                        videojuegos y la programación.
-                    </p>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            Soy un desarrollador en formación con ganas
+                            de mejorar mis habilidades en la creación
+                            de mods, el diseño de videojuegos y la
+                            programación.
+                        </p>
 
-                    <p>
-                        Me gusta explorar ideas, aprender herramientas nuevas
-                        y convertir conceptos creativos en proyectos.
-                    </p>
+                        <p>
+                            Me gusta explorar ideas, aprender herramientas
+                            nuevas y convertir conceptos creativos
+                            en proyectos.
+                        </p>
+                    </div>
 
-                    <p class="goal">
-                        Mi gran objetivo es seguir aprendiendo y, algún día,
-                        poder trabajar en Mojang.
-                    </p>
+                    <div class="goal-card">
+                        <div class="icon" aria-hidden="true">⚒️</div>
+
+                        <p>
+                            Mi gran objetivo es seguir aprendiendo y,
+                            algún día, poder <strong>trabajar en Mojang</strong>.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contacto">
             <div class="container">
-                <div class="section-label">Contacto</div>
+                <div class="section-label">CONTACTO</div>
                 <h2>Conecta conmigo</h2>
 
                 <div class="contact-card">
                     <div>
                         <h3>¡Seguimos construyendo!</h3>
+
                         <p>
-                            Puedes encontrarme en GitHub y seguir mis futuros
-                            proyectos y avances.
+                            Puedes encontrarme en GitHub y seguir mis
+                            futuros proyectos y avances.
                         </p>
                     </div>
 
@@ -429,9 +491,9 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container footer-content">
             <p>© 2026 Alnoruan · Portfolio personal</p>
-            <p>Hecho con creatividad y pasión por Minecraft.</p>
+            <p>Hecho con pasión por Minecraft.</p>
         </div>
     </footer>
 
