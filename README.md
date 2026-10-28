@@ -1,4 +1,4 @@
-## Página en español para mis mods de minecraft
+## Trabajando en mods de minecraft
 
 <!--
 **Alnoruan/Alnoruan** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
